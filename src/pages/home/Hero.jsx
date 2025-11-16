@@ -57,7 +57,6 @@ export const Hero = () => {
                 <Box
                     className='hero-button'
                     sx={{
-
                         bgcolor: theme.palette.background.default,
                         position: 'absolute',
                         bottom: -10,
