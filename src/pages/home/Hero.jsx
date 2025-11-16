@@ -19,7 +19,7 @@ export const Hero = () => {
     useGSAP(() => {
 
         const heroTL = gsap.timeline()
-        const dataTL = gsap.timeline({ scrollTrigger: { trigger: '.data-section', start: 'top +500', markers: true } })
+        const dataTL = gsap.timeline({ scrollTrigger: { trigger: '.data-section', start: 'top +500' } })
         heroTL.from('.hero-img', {
             opacity: 0,
             duration: 1,

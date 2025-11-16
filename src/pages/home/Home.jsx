@@ -1,10 +1,14 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
 import { Hero } from './Hero'
+import { Skills } from './Skills'
+import Process from './Process'
 export const Home = () => {
     return (
-        <Box sx={{ height: '500vh' }}>
+        <Box >
             <Hero />
+            <Skills />
+            <Process />
         </Box>
     )
 }
