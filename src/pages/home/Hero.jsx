@@ -70,7 +70,7 @@ export const Hero = () => {
 
                     }}>
 
-                    <SpecialButton text={`Shop Now `} />
+                    <SpecialButton text={`Shop Now `} height={{ lg: '110%', sm: '100%', xs: '90%' }} mt={{ md: 1.5, sm: 1, xs: .8 }} width={'90%'} />
                 </Box>
             </Box>
             <Box className={'data-section'} sx={{ mt: 5, border: '2px dashed', borderColor: theme.palette.primary.main, borderRadius: '15px' }}>

@@ -2,18 +2,18 @@ import { Box, useTheme } from '@mui/material'
 import React from 'react'
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
-const SpecialButton = ({ text }) => {
+const SpecialButton = ({ text, height, mt, width }) => {
     const theme = useTheme()
     return (
         <Box sx={{
             position: 'relative', bgcolor: theme.palette.primary.main, color: theme.palette.primary.contrastText,
             display: 'flex', justifyContent: 'center', alignItems: 'center',
-            borderRadius: '12px', px: 2, height: { lg: '110%', sm: '100%', xs: '90%' }, width: '90%',
+            borderRadius: '12px', px: 2, height: { height }, width: { width },
             cursor: 'pointer',
             border: '1px dashed', borderColor: theme.palette.primary.dark,
             fontSize: { md: '18px', sm: '12px', xs: '10px' },
             fontWeight: '400',
-            mt: { md: 1.5, sm: 1, xs: .8 },
+            mt: { mt },
             "&:hover": {
                 backgroundColor: theme.palette.secondary.light,
                 color: theme.palette.secondary.contrastText,

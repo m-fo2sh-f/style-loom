@@ -2,8 +2,12 @@
 import api from './api';
 
 // جلب كل المنتجات
-export const getProducts = async () => {
-    const { data } = await api.get('api/products?populate=*');
+export const getProducts = async (category) => {
+    let url = "/api/products?populate=*";
+    if (category && category !== "All") {
+        url += `&filters[category][$eq]=${category}`;
+    }
+    const { data } = await api.get(url);
     return data;
 };
 

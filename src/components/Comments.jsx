@@ -3,10 +3,17 @@ import DottedButton from './DottedButton'
 import React, { useState } from 'react'
 import logo from '../assets/icons/Abstract Design3.png'
 import TwitterIcon from '@mui/icons-material/Twitter';
+import { useQuery } from '@tanstack/react-query';
+import { getComments } from '../services/commentServices';
 
 const Comments = () => {
     const theme = useTheme()
     const [more, setMore] = useState(false)
+    const { data, isLoading, error } = useQuery({
+        queryKey: ["products"],
+        queryFn: () => getComments(),
+    });
+    console.log(data.data)
 
     return (
         <Box sx={{ mt: 5, width: '90%', mx: 'auto', border: '2px dashed', borderColor: theme.palette.primary.main, borderRadius: '15px' }}>
@@ -25,229 +32,59 @@ const Comments = () => {
                         display: { md: 'block', xs: 'none' }
                     }}
                 />
-                <Typography variant="h3" sx={{ fontSize: { xl: '40px', md: '30px', xs: '20px' } }} >The StyleLoom Testimonial Collection.</Typography>
+                <Typography variant="h3" sx={{ color: theme.palette.primary.contrastText, fontSize: { xl: '40px', md: '30px', xs: '20px' } }} >The StyleLoom Testimonial Collection.</Typography>
                 <Typography variant="body2" sx={{ mt: 1.5, color: theme.palette.primary.dark }}>At StyleLoom, our customers are the heartbeat of our brand.</Typography>
 
             </Box>
 
 
-            <Stack flexDirection={{ md: 'row', xs: 'column' }}
+            <Stack flexDirection={{ md: 'row', xs: 'column' }} flexWrap={'wrap'}
                 sx={{
                     borderBottomWidth: { md: '2px', xs: 0 },
                     borderBottomStyle: { md: 'dashed', xs: 'none' },
                     borderBottomColor: { md: theme.palette.primary.main },
                 }}
             >
-                <Stack flexDirection={{ md: 'row', xs: 'column' }}
-                    sx={{
-                        borderBottomWidth: { md: '2px', xs: 0 },
-                        borderBottomStyle: { md: 'dashed', xs: 'none' },
-                        borderBottomColor: { md: theme.palette.primary.main },
-                    }}
-                >
-                    <Stack
-                        gap={3}
+                {data?.data?.map((com, index) => (
+                    <Stack key={index} flexDirection={{ md: 'column', xs: 'column' }}
                         sx={{
-                            borderRightWidth: { md: '2px', xs: 0 },
-                            borderRightStyle: { md: 'dashed', xs: 'none' },
-                            borderRightColor: { md: theme.palette.primary.main },
-                            borderBottomWidth: { xs: '2px', md: 0 },
-                            borderBottomStyle: { xs: 'dashed', md: 'none' },
-                            borderBottomColor: { xs: theme.palette.primary.main },
-                            overflow: 'hidden',
-                            position: 'relative', flex: "1 1 33.33%",
-                            padding: 3,
-                        }}>
-                        <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
-                            <Stack justifyContent={'space-between'} alignItems={'center'} flexDirection={'row'}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                                <Box sx={{ ml: 2 }}>
-                                    <Typography variant="h6" sx={{ color: theme.palette.primary.contrastText }} >name 1</Typography>
-                                    <Typography variant="body2">address</Typography>
-                                </Box>
+                            borderBottomWidth: { md: '2px', xs: 0 },
+                            borderBottomStyle: { md: 'dashed', xs: 'none' },
+                            borderBottomColor: { md: theme.palette.primary.main },
+                            width: '33.33%',
+                            minWidth: '420px',
+                            flexGrow: 1
+                        }}
+                    >
+                        <Stack
+                            gap={3}
+                            sx={{
+                                borderRightWidth: { md: '2px', xs: 0 },
+                                borderRightStyle: { md: 'dashed', xs: 'none' },
+                                borderRightColor: { md: theme.palette.primary.main },
+                                overflow: 'hidden',
+                                position: 'relative', flex: "1 1 33.33%",
+                                padding: 3,
+                            }}>
+                            <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
+                                <Stack justifyContent={'space-between'} alignItems={'center'} flexDirection={'row'}>
+                                    <Avatar alt="Remy Sharp" src={`http://localhost:1337${com.picture.url}`} />
+                                    <Box sx={{ ml: 2 }}>
+                                        <Typography variant="h6" sx={{ color: theme.palette.primary.contrastText }} >{com.name}</Typography>
+                                        <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>{com.country} ,{com.city}</Typography>
+                                    </Box>
+                                </Stack>
+                                <TwitterIcon sx={{ color: theme.palette.secondary.main }} />
                             </Stack>
-                            <TwitterIcon sx={{ color: 'red' }} />
+                            <Rating name="half-rating-read" defaultValue={com.rate} precision={0.5} readOnly />
+                            <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>{com.comment}</Typography>
                         </Stack>
-                        <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
-                        <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>StyleLoom exceeded my expectations. The gown's quality and design made me feel like a queen. Fast shipping, too!</Typography>
                     </Stack>
-                </Stack>
-                <Stack flexDirection={{ md: 'row', xs: 'column' }}
-                    sx={{
-                        borderBottomWidth: { md: '2px', xs: 0 },
-                        borderBottomStyle: { md: 'dashed', xs: 'none' },
-                        borderBottomColor: { md: theme.palette.primary.main },
-                    }}
-                >
-                    <Stack
-                        gap={3}
-                        sx={{
-                            borderRightWidth: { md: '2px', xs: 0 },
-                            borderRightStyle: { md: 'dashed', xs: 'none' },
-                            borderRightColor: { md: theme.palette.primary.main }, // هنا اللون اللي انت عايزه
-                            borderBottomWidth: { xs: '2px', md: 0 },
-                            borderBottomStyle: { xs: 'dashed', md: 'none' },
-                            borderBottomColor: { xs: theme.palette.primary.main },
-                            overflow: 'hidden',
-                            position: 'relative', flex: "1 1 33.33%",
-                            padding: 3,
-                        }}>
-                        <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
-                            <Stack justifyContent={'space-between'} alignItems={'center'} flexDirection={'row'}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                                <Box sx={{ ml: 2 }}>
-                                    <Typography variant="h6" >name 1</Typography>
-                                    <Typography variant="body2">address</Typography>
-                                </Box>
-                            </Stack>
-                            <TwitterIcon sx={{ color: 'red' }} />
-                        </Stack>
-                        <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
-                        <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>StyleLoom exceeded my expectations. The gown's quality and design made me feel like a queen. Fast shipping, too!</Typography>
-                    </Stack>
-                </Stack>
-                <Stack flexDirection={{ md: 'row', xs: 'column' }}
-                    sx={{
-                        borderBottomWidth: { md: '2px', xs: 0 },
-                        borderBottomStyle: { md: 'dashed', xs: 'none' },
-                        borderBottomColor: { md: theme.palette.primary.main },
-                    }}
-                >
-                    <Stack
-                        gap={3}
-                        sx={{
-                            borderRightWidth: { md: '2px', xs: 0 },
-                            borderRightStyle: { md: 'dashed', xs: 'none' },
-                            borderRightColor: { md: theme.palette.primary.main }, // هنا اللون اللي انت عايزه
-                            borderBottomWidth: { xs: '2px', md: 0 },
-                            borderBottomStyle: { xs: 'dashed', md: 'none' },
-                            borderBottomColor: { xs: theme.palette.primary.main },
-                            overflow: 'hidden',
-                            position: 'relative', flex: "1 1 33.33%",
-                            padding: 3,
-                        }}>
-                        <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
-                            <Stack justifyContent={'space-between'} alignItems={'center'} flexDirection={'row'}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                                <Box sx={{ ml: 2 }}>
-                                    <Typography variant="h6" >name 1</Typography>
-                                    <Typography variant="body2">address</Typography>
-                                </Box>
-                            </Stack>
-                            <TwitterIcon sx={{ color: 'red' }} />
-                        </Stack>
-                        <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
-                        <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>StyleLoom exceeded my expectations. The gown's quality and design made me feel like a queen. Fast shipping, too!</Typography>
-                    </Stack>
-                </Stack>
+                ))}
+
+
             </Stack>
-            <Stack flexDirection={{ md: 'row', xs: 'column' }} sx={{
-                height: { md: 'auto', xs: more ? 'auto' : '0' },
-                display: { md: 'flex', xs: more ? 'flex' : 'none' },
-            }}>
-                <Stack flexDirection={{ md: 'row', xs: 'column' }}
-                    sx={{
-                        borderBottomWidth: { md: '2px', xs: 0 },
-                        borderBottomStyle: { md: 'dashed', xs: 'none' },
-                        borderBottomColor: { md: theme.palette.primary.main },
-                    }}
-                >
-                    <Stack
-                        gap={3}
-                        sx={{
-                            borderRightWidth: { md: '2px', xs: 0 },
-                            borderRightStyle: { md: 'dashed', xs: 'none' },
-                            borderRightColor: { md: theme.palette.primary.main }, // هنا اللون اللي انت عايزه
-                            borderBottomWidth: { xs: '2px', md: 0 },
-                            borderBottomStyle: { xs: 'dashed', md: 'none' },
-                            borderBottomColor: { xs: theme.palette.primary.main },
-                            overflow: 'hidden',
-                            position: 'relative', flex: "1 1 33.33%",
-                            padding: 3,
-                        }}>
-                        <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
-                            <Stack justifyContent={'space-between'} alignItems={'center'} flexDirection={'row'}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                                <Box sx={{ ml: 2 }}>
-                                    <Typography variant="h6" >name 1</Typography>
-                                    <Typography variant="body2">address</Typography>
-                                </Box>
-                            </Stack>
-                            <TwitterIcon sx={{ color: 'red' }} />
-                        </Stack>
-                        <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
-                        <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>StyleLoom exceeded my expectations. The gown's quality and design made me feel like a queen. Fast shipping, too!</Typography>
-                    </Stack>
-                </Stack>
-                <Stack flexDirection={{ md: 'row', xs: 'column' }}
-                    sx={{
-                        borderBottomWidth: { md: '2px', xs: 0 },
-                        borderBottomStyle: { md: 'dashed', xs: 'none' },
-                        borderBottomColor: { md: theme.palette.primary.main },
-                    }}
-                >
-                    <Stack
-                        gap={3}
-                        sx={{
-                            borderRightWidth: { md: '2px', xs: 0 },
-                            borderRightStyle: { md: 'dashed', xs: 'none' },
-                            borderRightColor: { md: theme.palette.primary.main }, // هنا اللون اللي انت عايزه
-                            borderBottomWidth: { xs: '2px', md: 0 },
-                            borderBottomStyle: { xs: 'dashed', md: 'none' },
-                            borderBottomColor: { xs: theme.palette.primary.main },
-                            overflow: 'hidden',
-                            position: 'relative', flex: "1 1 33.33%",
-                            padding: 3,
-                        }}>
-                        <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
-                            <Stack justifyContent={'space-between'} alignItems={'center'} flexDirection={'row'}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                                <Box sx={{ ml: 2 }}>
-                                    <Typography variant="h6" >name 1</Typography>
-                                    <Typography variant="body2">address</Typography>
-                                </Box>
-                            </Stack>
-                            <TwitterIcon sx={{ color: 'red' }} />
-                        </Stack>
-                        <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
-                        <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>StyleLoom exceeded my expectations. The gown's quality and design made me feel like a queen. Fast shipping, too!</Typography>
-                    </Stack>
-                </Stack>
-                <Stack flexDirection={{ md: 'row', xs: 'column' }}
-                    sx={{
-                        borderBottomWidth: { md: '2px', xs: 0 },
-                        borderBottomStyle: { md: 'dashed', xs: 'none' },
-                        borderBottomColor: { md: theme.palette.primary.main },
-                    }}
-                >
-                    <Stack
-                        gap={3}
-                        sx={{
-                            borderRightWidth: { md: '2px', xs: 0 },
-                            borderRightStyle: { md: 'dashed', xs: 'none' },
-                            borderRightColor: { md: theme.palette.primary.main }, // هنا اللون اللي انت عايزه
-                            borderBottomWidth: { xs: '2px', md: 0 },
-                            borderBottomStyle: { xs: 'dashed', md: 'none' },
-                            borderBottomColor: { xs: theme.palette.primary.main },
-                            overflow: 'hidden',
-                            position: 'relative', flex: "1 1 33.33%",
-                            padding: 3,
-                        }}>
-                        <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
-                            <Stack justifyContent={'space-between'} alignItems={'center'} flexDirection={'row'}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                                <Box sx={{ ml: 2 }}>
-                                    <Typography variant="h6" >name 1</Typography>
-                                    <Typography variant="body2">address</Typography>
-                                </Box>
-                            </Stack>
-                            <TwitterIcon sx={{ color: 'red' }} />
-                        </Stack>
-                        <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
-                        <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>StyleLoom exceeded my expectations. The gown's quality and design made me feel like a queen. Fast shipping, too!</Typography>
-                    </Stack>
-                </Stack>
-            </Stack>
+
 
 
             <Button
