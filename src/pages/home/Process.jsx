@@ -1,7 +1,7 @@
 import { Box, useTheme, Typography, Stack } from '@mui/material'
 import React from 'react'
 import icon from '../../assets/icons/Abstract Design.png'
-import { steps } from '../../constants/homeConstant'
+import { steps } from '../../constants/HomeConstant'
 const Process = () => {
     const theme = useTheme()
     return (
@@ -24,7 +24,7 @@ const Process = () => {
                         display: { md: 'block', xs: 'none' }
                     }}
                 />
-                <Typography variant="h3" sx={{ fontSize: { xl: '40px', md: '30px', xs: '20px' } }} >Navigating the StyleLoom Fashion Journey.</Typography>
+                <Typography variant="h3" sx={{ color: theme.palette.primary.contrastText, fontSize: { xl: '40px', md: '30px', xs: '20px' } }} >Navigating the StyleLoom Fashion Journey.</Typography>
                 <Typography variant="body2" sx={{ mt: 1.5, color: theme.palette.primary.dark }}>At StyleLoom, we've designed a straightforward shopping experience to make fashion accessible.</Typography>
             </Box>
             <Stack flexDirection={{ md: 'row', xs: 'column' }} sx={{ width: '100%' }}>
@@ -39,7 +39,7 @@ const Process = () => {
                         borderColor: theme.palette.primary.main
                     }}>
                         <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>Step 0{index + 1}</Typography>
-                        <Typography variant="h5">{step.title}</Typography>
+                        <Typography variant="h5" sx={{ color: theme.palette.primary.contrastText }}>{step.title}</Typography>
                         <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>{step.description}</Typography>
                     </Stack>
                 ))}

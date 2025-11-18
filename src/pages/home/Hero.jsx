@@ -1,7 +1,6 @@
 import { Box, Button, Stack, useTheme, Typography, IconButton } from '@mui/material'
 import React, { useRef } from 'react'
 import heroImage from '../../assets/hero.png'
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import CountUp from 'react-countup';
 import DottedButton from '../../components/DottedButton';
 
@@ -9,6 +8,7 @@ import { ScrollTrigger, SplitText } from 'gsap/all';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
 import { Description } from '@mui/icons-material';
+import SpecialButton from '../../components/SpecialButton';
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 export const Hero = () => {
     const hero = useRef()
@@ -69,28 +69,8 @@ export const Hero = () => {
                         justifyContent: 'center',
 
                     }}>
-                    <Button
 
-                        sx={{
-                            backgroundColor: 'transparent',
-                            bgcolor: theme.palette.primary.main,
-                            color: theme.palette.primary.contrastText,
-                            mt: { md: 1.5, sm: 1, xs: .8 },
-                            width: '90%',
-                            height: { lg: '110%', sm: '100%', xs: '90%' },
-                            borderRadius: "12px",
-                            boxShadow: "none",
-                            fontWeight: '400',
-                            fontSize: { md: '18px', sm: '12px', xs: '10px' },
-                            textWrap: 'nowrap',
-                            "&:hover": {
-                                backgroundColor: theme.palette.secondary.light,
-                                color: theme.palette.secondary.contrastText,
-                                borderColor: 'transparent'
-                            }
-                        }}>
-                        Shop Now<ArrowOutwardIcon sx={{ ml: 1 }} />
-                    </Button>
+                    <SpecialButton text={`Shop Now `} />
                 </Box>
             </Box>
             <Box className={'data-section'} sx={{ mt: 5, border: '2px dashed', borderColor: theme.palette.primary.main, borderRadius: '15px' }}>
@@ -111,21 +91,21 @@ export const Hero = () => {
                                 pl: 5, width: '50%', fontSize: '60px',
                                 borderRight: '2px dashed', borderColor: theme.palette.primary.main,
                             }}>
-                                <Typography sx={{ fontSize: "60px" }}><CountUp end={1500} duration={2} /> <span style={{ fontSize: '40px', fontWeight: 'bolder' }}>+</span></Typography>
+                                <Typography sx={{ fontSize: "60px", color: theme.palette.primary.contrastText }}><CountUp end={1500} duration={2} /> <span style={{ fontSize: '40px', fontWeight: 'bolder' }}>+</span></Typography>
                                 <Typography variant="body1" sx={{ color: theme.palette.primary.dark, }}>Fashion Products</Typography>
                             </Stack>
                             <Stack justifyContent={'center'} sx={{ pl: 5, width: '50%', fontSize: '60px' }}>
-                                <Typography sx={{ fontSize: "60px" }}><CountUp end={50} duration={2} /> <span style={{ fontSize: '40px', fontWeight: 'bolder' }}>+</span></Typography>
+                                <Typography sx={{ fontSize: "60px", color: theme.palette.primary.contrastText }}><CountUp end={50} duration={2} /> <span style={{ fontSize: '40px', fontWeight: 'bolder' }}>+</span></Typography>
                                 <Typography variant="body1" sx={{ color: theme.palette.primary.dark, }}>New arrivals every month.</Typography>
                             </Stack>
                         </Stack>
                         <Stack flexDirection={'row'} sx={{ height: '50%', textWrap: 'nowrap' }}  >
                             <Stack justifyContent={'center'} sx={{ pl: 5, width: '50%', fontSize: '60px', borderRight: '2px dashed', borderColor: theme.palette.primary.main, }}>
-                                <Typography sx={{ fontSize: "60px" }}><CountUp end={30} duration={2} /> <span style={{ fontSize: '40px', fontWeight: 'bolder' }}>%</span></Typography>
+                                <Typography sx={{ fontSize: "60px", color: theme.palette.primary.contrastText }}><CountUp end={30} duration={2} /> <span style={{ fontSize: '40px', fontWeight: 'bolder' }}>%</span></Typography>
                                 <Typography variant="body1" sx={{ color: theme.palette.primary.dark, }}>OFF on select items.</Typography>
                             </Stack>
                             <Stack justifyContent={'center'} sx={{ pl: 5, width: '50%', fontSize: '60px' }}>
-                                <Typography sx={{ fontSize: "60px" }}><CountUp end={95} duration={2} /> <span style={{ fontSize: '40px', fontWeight: 'bolder' }}>%</span></Typography>
+                                <Typography sx={{ fontSize: "60px", color: theme.palette.primary.contrastText }}><CountUp end={95} duration={2} /> <span style={{ fontSize: '40px', fontWeight: 'bolder' }}>%</span></Typography>
                                 <Typography variant="body1" sx={{ color: theme.palette.primary.dark, }}>Customer Satisfaction Rate</Typography>
                             </Stack>
                         </Stack>

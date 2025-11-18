@@ -1,4 +1,3 @@
-
 import icon1 from '../assets/icons/Icon (2).png'
 import icon2 from '../assets/icons/Icon (3).png'
 import icon3 from '../assets/icons/Icon (4).png'
@@ -11,6 +10,11 @@ import logo5 from '../assets/icons/Icon Container (3).png'
 import logo4 from '../assets/icons/Icon Container (4).png'
 import logo1 from '../assets/icons/Icon Container (5).png'
 import logo2 from '../assets/icons/Icon Container.png'
+
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GoogleIcon from '@mui/icons-material/Google';
 
 export const firstRow = [
     {
@@ -57,4 +61,30 @@ export const steps = [
     { title: 'Effortless Navigation', description: 'Intuitive filters and categories help you find the perfect pieces tailored to your style.' },
     { title: 'Secure Checkout', description: 'Multiple payment options and encrypted transactions ensure a safe and hassle-free purchase.' },
     { title: 'Unbox Happiness', description: 'Unbox a fashion-forward experience delivered right to your door, ready to elevate your style.' },
+]
+export const offers = [
+    'Long-Sleeve T-Shir',
+    'Raglan Sleeve Shirt',
+    'Top',
+    'V-Neck Shirt',
+    'Muscle Shirt',
+    'Tank Top',
+    'T-Shirt',
+]
+export const footericons = [
+    { icon: InstagramIcon, path: '#' },
+    { icon: TwitterIcon, path: '#' },
+    { icon: LinkedInIcon, path: '#' },
+    { icon: GoogleIcon, path: '#' },
+]
+export const footerHomeLinks = [
+    { title: 'Why Us', path: '#' },
+    { title: 'About Us', path: '#' },
+    { title: 'Testimonials', path: '#' },
+    { title: "FAQ'Q", path: '#' },
+]
+export const footerProductLinks = [
+    { title: 'Menswear', path: '#' },
+    { title: 'Womenswear', path: '#' },
+    { title: 'Kidswear', path: '#' },
 ]

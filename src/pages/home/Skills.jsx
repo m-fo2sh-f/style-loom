@@ -1,7 +1,7 @@
 import { Box, Stack, useTheme, Typography, Button } from '@mui/material'
 import React, { useState } from 'react'
-import { firstRow } from '../../constants/homeConstant'
-import { secondRow } from '../../constants/homeConstant'
+import { firstRow } from '../../constants/HomeConstant'
+import { secondRow } from '../../constants/HomeConstant'
 import { Description } from '@mui/icons-material'
 export const Skills = () => {
     const theme = useTheme()
@@ -15,7 +15,7 @@ export const Skills = () => {
                     p: 5,
                     borderBottom: '2px dashed', borderColor: theme.palette.primary.main,
                 }}>
-                    <Typography variant="h3" sx={{ fontSize: { xl: '40px', md: '30px', xs: '20px' } }} >Crafting Trends, Inspiring Confidence</Typography>
+                    <Typography variant="h3" sx={{ color: theme.palette.primary.contrastText, fontSize: { xl: '40px', md: '30px', xs: '20px' } }} >Crafting Trends, Inspiring Confidence</Typography>
                     <Typography variant="body2" sx={{ mt: 1.5, color: theme.palette.primary.dark }}>Explore a world of fashion at StyleLoom, where trends meet affordability.</Typography>
                 </Box>
 
@@ -52,7 +52,7 @@ export const Skills = () => {
                                     src={sec.icon}
                                     sx={{ width: '200px', height: '200px', position: 'absolute', right: -50, top: -40 }}
                                 />
-                                <Typography variant="h5">{sec.title}</Typography>
+                                <Typography variant="h5" sx={{ color: theme.palette.primary.contrastText }}>{sec.title}</Typography>
                                 <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>{sec.description}</Typography>
                             </Stack>
                         ))}
@@ -84,7 +84,7 @@ export const Skills = () => {
                                     src={sec.icon}
                                     sx={{ width: '200px', height: '200px', position: 'absolute', right: -50, top: -40 }}
                                 />
-                                <Typography variant="h5">{sec.title}</Typography>
+                                <Typography variant="h5" sx={{ color: theme.palette.primary.contrastText }}>{sec.title}</Typography>
                                 <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>{sec.description}</Typography>
                             </Stack>
                         ))}

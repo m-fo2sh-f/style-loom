@@ -22,7 +22,7 @@ const Products = () => {
                         display: { md: 'block', xs: 'none' }
                     }}
                 />
-                <Typography variant="h3" sx={{ fontSize: { xl: '40px', md: '30px', xs: '20px' } }} >Navigating the StyleLoom Fashion Journey.</Typography>
+                <Typography variant="h3" sx={{ color: theme.palette.primary.contrastText, fontSize: { xl: '40px', md: '30px', xs: '20px' } }} >Navigating the StyleLoom Fashion Journey.</Typography>
                 <Typography variant="body2" sx={{ mt: 1.5, color: theme.palette.primary.dark }}>At StyleLoom, we've designed a straightforward shopping experience to make fashion accessible.</Typography>
                 <Stack flexDirection={'row'} gap={2} mt={4} >
                     <DottedButton text={'All'} />
@@ -31,6 +31,7 @@ const Products = () => {
                     <DottedButton text={'Kids'} />
                 </Stack>
             </Box>
+
             <Stack flexDirection={'row'} justifyContent={{ sm: 'space-between', xs: 'center' }} flexWrap={'wrap'} sx={{ width: '100%', }}>
                 <Stack
                     gap={3}
@@ -78,7 +79,6 @@ const Products = () => {
                 <Stack
                     gap={3}
                     sx={{
-
                         minWidth: '33.33%',
                         overflow: 'hidden',
                         position: 'relative',
