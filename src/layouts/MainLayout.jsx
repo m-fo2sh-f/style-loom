@@ -8,6 +8,7 @@ import { useGSAP } from "@gsap/react";
 import Poster from '../components/Poster';
 import Ticker from '../components/Ticker';
 import Comments from '../components/Comments';
+import Questions from '../components/Questions';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -19,6 +20,7 @@ const MainLayout = ({ children }) => {
             {children}
             <Poster />
             <Comments />
+            <Questions />
             <Ticker />
             <Footer />
         </Box >

@@ -11,9 +11,10 @@ const SpecialButton = ({ text, height, mt, width }) => {
             borderRadius: '12px', px: 2, height: { height }, width: { width },
             cursor: 'pointer',
             border: '1px dashed', borderColor: theme.palette.primary.dark,
-            fontSize: { md: '18px', sm: '12px', xs: '10px' },
+            fontSize: { md: '18px', sm: '18px', xs: '13px' },
             fontWeight: '400',
             mt: { mt },
+            textWrap: 'nowrap',
             "&:hover": {
                 backgroundColor: theme.palette.secondary.light,
                 color: theme.palette.secondary.contrastText,

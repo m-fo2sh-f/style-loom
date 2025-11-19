@@ -12,8 +12,8 @@ const Footer = () => {
     )
     return (
         <Box  >
-            <Stack flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{ p: 5, width: '90%', mx: 'auto' }}>
-                <Typography variant='h1' sx={{ color: theme.palette.primary.contrastText }}>Style<span style={{ color: theme.palette.secondary.main, fontSize: '100px' }}>.</span>Loom</Typography>
+            <Stack flexDirection={{ md: 'row', xs: 'column' }} gap={2} alignItems={'center'} justifyContent={'space-between'} sx={{ p: 5, width: '90%', mx: 'auto' }}>
+                <Typography variant='h1' sx={{ fontSize: { md: '100px', xs: '50px' }, color: theme.palette.primary.contrastText }}>Style<span style={{ color: theme.palette.secondary.main, fontSize: '100px' }}>.</span>Loom</Typography>
                 <Stack direction="row" spacing={2}>
                     {footericons.map((item, index) => {
                         const Icon = item.icon;
@@ -43,10 +43,10 @@ const Footer = () => {
                         );
                     })}
                 </Stack>
-            </Stack>
+            </Stack >
             <Box sx={{ py: 5, borderTop: '2px dashed', borderBottom: '2px dashed', borderColor: theme.palette.primary.main }}>
-                <Stack flexDirection={'row'} alignItems={'center'} justifyContent={'space-between'} sx={{ width: '90%', mx: 'auto', color: theme.palette.primary.dark, }}>
-                    <Box>
+                <Stack flexDirection={{ md: 'row', xs: 'column' }} gap={2} alignItems={{ md: 'center', xs: 'start' }} justifyContent={'space-between'} sx={{ width: '90%', mx: 'auto', color: theme.palette.primary.dark, }}>
+                    <Stack gap={1.6}>
                         <Typography variant='h6' sx={{ color: theme.palette.primary.contrastText }}>Home</Typography>
                         <Stack flexDirection={'row'} alignItems={'center'} gap={1}>
                             {footerHomeLinks.map((link, index) => (
@@ -63,8 +63,8 @@ const Footer = () => {
                                 </>
                             ))}
                         </Stack>
-                    </Box>
-                    <Box>
+                    </Stack>
+                    <Stack gap={1.6}>
                         <Typography variant='h6' sx={{ color: theme.palette.primary.contrastText }}>Products</Typography>
                         <Stack flexDirection={'row'} alignItems={'center'} gap={1}>
                             {footerProductLinks.map((link, index) => (
@@ -81,8 +81,8 @@ const Footer = () => {
                                 </>
                             ))}
                         </Stack>
-                    </Box>
-                    <Box>
+                    </Stack>
+                    <Stack gap={1.6} sx={{ width: { md: '30%', xs: '100%' } }}>
                         <Typography variant='h6' sx={{ color: theme.palette.primary.contrastText }}>Subscribe to Newsletter</Typography>
 
                         <TextField
@@ -97,7 +97,7 @@ const Footer = () => {
                             }}
                             sx={{
                                 borderRadius: '15px',
-                                width: "93%",
+                                width: { md: '93%', xs: '100%' },
                                 bgcolor: theme.palette.primary.main,
 
                                 "& .MuiOutlinedInput-root": {
@@ -126,10 +126,10 @@ const Footer = () => {
                         />
 
 
-                    </Box>
+                    </Stack>
                 </Stack>
             </Box >
-            <Stack sx={{ py: 3, width: '90%', mx: 'auto' }} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
+            <Stack sx={{ py: 3, width: '90%', mx: 'auto' }} flexDirection={{ md: 'row', xs: 'column' }} gap={2} justifyContent={'space-between'} alignItems={'center'}>
                 <Typography variant="body2" sx={{ color: theme.palette.primary.dark }}>© 2024 StyleLoom. All rights reserved.</Typography>
                 <Stack flexDirection={'row'}>
                     <Box

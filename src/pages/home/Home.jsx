@@ -6,12 +6,11 @@ import Process from './Process'
 import Products from './Products'
 export const Home = () => {
     return (
-        <Box >
+        <Box  >
             <Hero />
             <Skills />
             <Process />
             <Products />
-
         </Box>
     )
 }

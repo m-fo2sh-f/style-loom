@@ -90,6 +90,7 @@ const NavBar = () => {
                     }} />
                 </Button>
                 <Stack sx={{
+                    zIndex: 5000,
                     borderRadius: '10px 0 10px 0',
                     position: 'fixed', right: '0', top: '0',
                     height: '100vh', width: drawer ? '50vw' : '0vh', bgcolor: theme.palette.primary.main,
