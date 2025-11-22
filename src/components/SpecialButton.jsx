@@ -14,7 +14,7 @@ const SpecialButton = ({ text, height, mt, width }) => {
             fontSize: { md: '18px', sm: '18px', xs: '13px' },
             fontWeight: '400',
             mt: { mt },
-            textWrap: 'nowrap',
+            textWrap: 'nowrap', transition: '.3s all',
             "&:hover": {
                 backgroundColor: theme.palette.secondary.light,
                 color: theme.palette.secondary.contrastText,

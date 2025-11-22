@@ -13,7 +13,8 @@ export const getProducts = async (category) => {
 
 // جلب منتج واحد
 export const getProductById = async (id) => {
-    const { data } = await api.get(`/products/${id}`);
+    const { data } = await api.get(`/api/products/${id}?populate=*`);
+    console.log(data);
     return data;
 };
 
