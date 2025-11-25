@@ -15,6 +15,7 @@ export const products = {
             img: [pr1_1, pr1_2, pr1_3],
             description: "A classic A-line evening dress with a fitted bodice and flowing skirt, perfect for formal occasions.",
             material: "Silk",
+            rate: 4.5
         },
         {
             id: 2,
@@ -25,6 +26,7 @@ export const products = {
             img: [pr2_1, pr2_2, pr2_3],
             description: "A sleek sheath dress that hugs the body, ideal for cocktail parties and upscale events.",
             material: "Satin",
+            rate: 5
         },
 
     ]

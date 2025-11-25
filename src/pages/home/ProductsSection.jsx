@@ -13,7 +13,7 @@ import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
-const Products = () => {
+const ProductsSection = () => {
     const theme = useTheme()
     const [currentCategory, setCurrentCategory] = React.useState("All");
     const { data, isLoading, error } = useQuery({
@@ -82,4 +82,4 @@ const Products = () => {
     )
 }
 
-export default Products
+export default ProductsSection
