@@ -4,7 +4,7 @@ import { getProductById } from '../../services/productServices'
 import { useQuery } from '@tanstack/react-query'
 import { Box, Button, Rating, Stack, Typography, useTheme } from '@mui/material';
 import SpecialButton from '../../components/SpecialButton';
-import { useCart } from '../../context/cartContext';
+import { useCart } from '../../context/CartContext';
 
 const ProductDetails = () => {
     const theme = useTheme()

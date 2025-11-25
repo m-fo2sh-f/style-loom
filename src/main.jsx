@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import Theme from './Theme'
 import { ThemeProvider } from '@mui/material/styles';
-import { CartProvider } from './context/cartContext';
+import { CartProvider } from './context/CartContext';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter } from 'react-router-dom'
