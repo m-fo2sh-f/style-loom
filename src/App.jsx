@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import ProductDetails from './pages/productDetails/ProductDetails.jsx';
 import Cart from './pages/cart/Cart.jsx';
 import Products from './pages/products/Products.jsx';
+import Contact from './pages/contact/Contact.jsx';
 
 function App() {
     return (
@@ -37,6 +38,13 @@ function App() {
                     element={
                         <MainLayout>
                             <Products />
+                        </MainLayout>
+                    } />
+                <Route
+                    path="/contact"
+                    element={
+                        <MainLayout>
+                            <Contact />
                         </MainLayout>
                     } />
             </Routes>

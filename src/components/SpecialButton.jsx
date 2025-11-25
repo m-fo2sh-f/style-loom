@@ -2,7 +2,7 @@ import { Box, useTheme } from '@mui/material'
 import React from 'react'
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
-const SpecialButton = ({ text, height, mt, width }) => {
+const SpecialButton = ({ text, height, mt, width, arrow = true }) => {
     const theme = useTheme()
     return (
         <Box sx={{
@@ -22,7 +22,7 @@ const SpecialButton = ({ text, height, mt, width }) => {
             }
 
         }}>
-            {text}<ArrowOutwardIcon sx={{ ml: 1 }} />
+            {text}{arrow && <ArrowOutwardIcon sx={{ ml: 1 }} />}
             < span style={{
                 borderTopLeftRadius: '12px',
                 width: '15px', height: '15px',
