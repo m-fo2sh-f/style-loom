@@ -8,6 +8,7 @@ import ProductDetails from './pages/productDetails/ProductDetails.jsx';
 import Cart from './pages/cart/Cart.jsx';
 import Products from './pages/products/Products.jsx';
 import Contact from './pages/contact/Contact.jsx';
+import NotFound from './pages/NotFound/NotFound.jsx';
 
 function App() {
     return (
@@ -47,6 +48,14 @@ function App() {
                             <Contact />
                         </MainLayout>
                     } />
+                <Route
+                    path="*"
+                    element={
+
+                        <NotFound />
+
+                    }
+                />
             </Routes>
 
         </>
