@@ -8,7 +8,10 @@ const Contact = () => {
     const theme = useTheme();
     return (
         <>
+            <Typography variant='h2' sx={{ mt: 5, textAlign: 'center', color: theme.palette.primary.contrastText }}>Contacts</Typography>
+
             <Box sx={{ width: '90%', mx: 'auto', border: '2px dashed', borderColor: theme.palette.primary.main, borderRadius: '10px', mt: 5 }}>
+
                 <Box
                     sx={{
                         position: 'relative', p: 5, overflow: 'hidden',

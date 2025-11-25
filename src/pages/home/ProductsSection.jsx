@@ -73,8 +73,8 @@ const ProductsSection = () => {
 
                 <Stack flexDirection={'row'} justifyContent={'center'} flexWrap={'wrap'} sx={{ width: '100%', }}>
 
-                    {data?.map((p) => (
-                        <Product p={p} />
+                    {data?.map((p, index) => (
+                        <Product key={index} p={p} />
                     ))}
                 </Stack>
             </Box >

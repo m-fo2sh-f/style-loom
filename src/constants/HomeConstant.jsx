@@ -15,7 +15,12 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GoogleIcon from '@mui/icons-material/Google';
-
+export const navBarLinks = [
+    { title: 'Home', path: '/' },
+    { title: 'Products', path: '/products' },
+    { title: 'Cart', path: '/cart' },
+    { title: 'Contact', path: '/contact' },
+]
 export const firstRow = [
     {
         logo: logo1,

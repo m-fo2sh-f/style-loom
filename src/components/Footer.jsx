@@ -50,9 +50,8 @@ const Footer = () => {
                         <Typography variant='h6' sx={{ color: theme.palette.primary.contrastText }}>Home</Typography>
                         <Stack flexDirection={'row'} alignItems={'center'} gap={1}>
                             {footerHomeLinks.map((link, index) => (
-                                <>
+                                <Stack flexDirection={'row'} justifyContent={'center'} alignItems={'center'} gap={1} key={index}>
                                     <Box
-                                        key={index}
                                         component="a"
                                         href={link.path}
                                         sx={{ textDecoration: 'none', color: theme.palette.primary.dark, transition: '.3s', '&:hover': { color: theme.palette.primary.contrastText } }}
@@ -60,7 +59,7 @@ const Footer = () => {
                                         <Typography variant='body2' >{link.title}</Typography>
                                     </Box >
                                     {index !== footerHomeLinks.length - 1 ? <Dot /> : ''}
-                                </>
+                                </Stack>
                             ))}
                         </Stack>
                     </Stack>
@@ -68,7 +67,7 @@ const Footer = () => {
                         <Typography variant='h6' sx={{ color: theme.palette.primary.contrastText }}>Products</Typography>
                         <Stack flexDirection={'row'} alignItems={'center'} gap={1}>
                             {footerProductLinks.map((link, index) => (
-                                <>
+                                <Stack flexDirection={'row'} justifyContent={'center'} alignItems={'center'} gap={1} key={index}>
                                     <Box
                                         key={index}
                                         component="a"
@@ -78,7 +77,7 @@ const Footer = () => {
                                         <Typography variant='body2' >{link.title}</Typography>
                                     </Box >
                                     {index !== footerProductLinks.length - 1 ? <Dot /> : ''}
-                                </>
+                                </Stack>
                             ))}
                         </Stack>
                     </Stack>

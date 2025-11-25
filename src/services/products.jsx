@@ -29,5 +29,18 @@ export const products = {
             rate: 5
         },
 
+        {
+            id: 3,
+            title: "Sophisticate Sun Hat",
+            price: 119.99,
+            category: "Men",
+            fit: " fits all",
+            img: [pr2_2, pr2_1, pr2_3],
+            description: "A sleek sheath dress that hugs the body, ideal for cocktail parties and upscale events.",
+            material: "Satin",
+            rate: 4.5
+        },
+
+
     ]
 }

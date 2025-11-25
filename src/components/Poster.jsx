@@ -5,8 +5,10 @@ import logo from '../assets/icons/Abstract Design4.png'
 import { ScrollTrigger, SplitText } from 'gsap/all';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
+import { useNavigate } from 'react-router-dom';
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 const Poster = () => {
+    const navigator = useNavigate()
     const theme = useTheme()
     const posterSection = React.useRef()
     useGSAP(() => {
@@ -26,6 +28,9 @@ const Poster = () => {
                         <Typography variant="body2" color="initial">Don't miss out – experience the epitome of fashion by clicking 'Buy Now' and embrace a world of chic elegance delivered to your doorstep. Your style journey begins here.</Typography>
                     </Box>
                     <Button
+                        onClick={() => {
+                            navigator('/products')
+                        }}
                         sx={{
                             bgcolor: theme.palette.primary.main, color: theme.palette.primary.contrastText, borderRadius: '15px',
                             height: '60px', px: 5,

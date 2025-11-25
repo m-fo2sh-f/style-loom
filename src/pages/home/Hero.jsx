@@ -9,6 +9,7 @@ import SpecialButton from '../../components/SpecialButton';
 import { ScrollTrigger, SplitText } from 'gsap/all';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
+import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, SplitText);
 export const Hero = () => {
@@ -16,10 +17,12 @@ export const Hero = () => {
     const header = useRef()
     const description = useRef()
     const theme = useTheme()
+    const navigator = useNavigate()
 
     useGSAP(() => {
         const heroTL = gsap.timeline()
-        const dataTL = gsap.timeline({ scrollTrigger: { trigger: '.data-section', start: 'top +500' } })
+
+        // الأنيميشن بتاع الصورة والزرار مش محتاج يستنى الخطوط، فممكن نسيبه بره عادي
         heroTL.from('.hero-img', {
             opacity: 0,
             duration: 1,
@@ -29,21 +32,33 @@ export const Hero = () => {
             duration: .5,
             y: 20
         })
-        // splitting text
-        let splitHeader = SplitText.create(header.current, { type: 'words' })
-        let splitDescription = SplitText.create(description.current, { type: 'lines' })
-        splitDescription.lines.forEach(line => {
-            line.style.color = theme.palette.primary.dark;
+
+        // الحل السحري هنا: بنستنى لما الخطوط تجهز
+        document.fonts.ready.then(() => {
+            const dataTL = gsap.timeline({ scrollTrigger: { trigger: '.data-section', start: 'top +500' } })
+
+            // splitting text
+            // نتأكد إن الـ Elements لسه موجودة (عشان لو اليوزر قفل الصفحة بسرعة)
+            if (!header.current || !description.current) return;
+
+            let splitHeader = SplitText.create(header.current, { type: 'words' })
+            let splitDescription = SplitText.create(description.current, { type: 'lines' })
+
+            splitDescription.lines.forEach(line => {
+                line.style.color = theme.palette.primary.dark;
+            });
+
+            dataTL.from(splitHeader.words, {
+                opacity: .15,
+                stagger: .2
+            }, 0).from(splitDescription.lines, {
+                y: 50,
+                opacity: 0,
+                duration: .5,
+                stagger: .5
+            }, ">-0.5")
         });
-        dataTL.from(splitHeader.words, {
-            opacity: .15,
-            stagger: .2
-        }, 0).from(splitDescription.lines, {
-            y: 50,
-            opacity: 0,
-            duration: .5,
-            stagger: .5
-        }, ">-0.5")
+
     }, { scope: hero })
     return (
         <Box ref={hero} sx={{ width: '90%', mx: 'auto', mt: 4, overflow: 'hidden' }}>
@@ -69,7 +84,7 @@ export const Hero = () => {
                         justifyContent: 'center',
                         pt: { md: 1.6, sm: 1, xs: 1 }
                     }}>
-                    <SpecialButton text={`Shop Now `} height={{ lg: '110%', sm: '100%', xs: '90%' }} mt={1.6} width={'90%'} />
+                    <Box sx={{ width: '90%', height: { lg: '110%', sm: '100%', xs: '90%' } }} onClick={() => { navigator('/products') }}><SpecialButton text={`Shop Now `} height={'100%'} mt={1.6} width={'100%'} /></Box>
                 </Box>
             </Box>
             <Box className={'data-section'} sx={{ mt: 5, border: '2px dashed', borderColor: theme.palette.primary.main, borderRadius: '15px' }}>

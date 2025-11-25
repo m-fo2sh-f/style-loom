@@ -5,7 +5,6 @@ import { useQuery } from '@tanstack/react-query'
 import { Box, Button, Rating, Stack, Typography, useTheme } from '@mui/material';
 import SpecialButton from '../../components/SpecialButton';
 import { useCart } from '../../context/cartContext';
-import { useSnackbar } from 'notistack';
 
 const ProductDetails = () => {
     const theme = useTheme()

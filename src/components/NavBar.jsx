@@ -4,7 +4,9 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import DottedButton from './DottedButton';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+
+import { navBarLinks } from '../constants/HomeConstant';
 
 
 const NavBar = () => {
@@ -12,6 +14,7 @@ const NavBar = () => {
     const theme = useTheme()
     const [drawer, setDrawer] = React.useState(false);
     const navigator = useNavigate()
+    const location = useLocation();
 
     return (
         <Box className={'nav'} sx={{ bgcolor: theme.palette.background.default }}>
@@ -34,7 +37,7 @@ const NavBar = () => {
                         variant="contained">Home</Button>
                     <Box onClick={() => { navigator('/products') }}><DottedButton text={'Products'} /></Box>
                 </Stack>
-                <Typography onClick={() => { navigator('/') }} variant="h5" sx={{ color: theme.palette.primary.contrastText, cursor: 'pointer' }}>Style<span style={{ color: theme.palette.secondary.main, fontSize: '30px' }}>.</span>Loom</Typography>
+                <Typography onClick={() => { navigator('/') }} variant="h5" sx={{ mr: 2, color: theme.palette.primary.contrastText, cursor: 'pointer' }}>Style<span style={{ color: theme.palette.secondary.main, fontSize: '30px' }}>.</span>Loom</Typography>
                 <Stack direction={'row'} gap={2} sx={{ display: { md: 'flex', xs: 'none' } }} >
 
                     <Button sx={{
@@ -107,38 +110,31 @@ const NavBar = () => {
                         <IconButton onClick={() => { setDrawer(false) }}><CloseIcon sx={{ color: theme.palette.primary.contrastText, fontSize: '30px' }} /></IconButton>
                     </Stack>
                     <Stack>
-                        <Stack sx={{
-                            width: '100%', textAlign: 'left', p: '10px 20px', color: theme.palette.primary.contrastText, padding: 2,
-                            transition: '0.3s',
-                            '&:hover': {
-                                backgroundColor: theme.palette.secondary.main, color: theme.palette.secondary.contrastText, cursor: 'pointer'
-                            }
-                        }}
-                            onClick={() => { navigator('/') }} > Home</Stack>
-                        <Stack sx={{
-                            width: '100%', textAlign: 'left', p: '10px 20px', color: theme.palette.primary.contrastText, padding: 2,
-                            transition: '0.3s',
-                            '&:hover': {
-                                backgroundColor: theme.palette.secondary.main, color: theme.palette.secondary.contrastText, cursor: 'pointer'
-                            }
-                        }}
-                            onClick={() => { navigator('/products') }}> Products</Stack>
-                        <Stack sx={{
-                            width: '100%', textAlign: 'left', p: '10px 20px', color: theme.palette.primary.contrastText, padding: 2,
-                            transition: '0.3s',
-                            '&:hover': {
-                                backgroundColor: theme.palette.secondary.main, color: theme.palette.secondary.contrastText, cursor: 'pointer'
-                            }
-                        }} onClick={() => { navigator('/cart') }}> Cart</Stack>
-                        <Stack sx={{
-                            width: '100%', textAlign: 'left', p: '10px 20px', color: theme.palette.primary.contrastText, padding: 2,
-                            transition: '0.3s',
-                            '&:hover': {
-                                backgroundColor: theme.palette.secondary.main, color: theme.palette.secondary.contrastText, cursor: 'pointer'
-                            }
-                        }}
-                            onClick={() => { navigator('/contact') }} > Contact</Stack>
+                        {navBarLinks
+                            .filter(link => link.path !== location.pathname)
+                            .map(link => (
+                                <Stack
+                                    key={link.path}
+                                    sx={{
+                                        width: '100%',
+                                        textAlign: 'left',
+                                        p: '10px 20px',
+                                        color: theme.palette.primary.contrastText,
+                                        padding: 2,
+                                        transition: '0.3s',
+                                        '&:hover': {
+                                            backgroundColor: theme.palette.secondary.main,
+                                            color: theme.palette.secondary.contrastText,
+                                            cursor: 'pointer',
+                                        },
+                                    }}
+                                    onClick={() => navigator(link.path)}
+                                >
+                                    {link.title}
+                                </Stack>
+                            ))}
                     </Stack>
+
 
                 </Stack>
             </Stack >

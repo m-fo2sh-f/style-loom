@@ -38,7 +38,13 @@ export const Product = ({ p }) => {
 
             <Stack flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'} >
                 <Box sx={{ bgcolor: theme.palette.primary.main, p: "15px 20px", borderRadius: '25px', color: theme.palette.primary.contrastText, }}>{p.category}</Box>
-                <SpecialButton text={'Shop Now'} height={'50px'} mt={'0'} width={'40%'} />
+                <Box sx={{ width: '40%', }}
+                    onClick={() => {
+                        navigator(`/products/${p.id}`)
+                    }}
+                >
+                    <SpecialButton text={'Details'} height={'50px'} mt={'0'} width={'100%'} />
+                </Box>
             </Stack>
             <Stack sx={{ mt: .5 }} gap={1}>
                 <Typography variant="h5" sx={{ color: theme.palette.primary.contrastText }}>{p.title}</Typography>
