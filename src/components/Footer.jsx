@@ -1,8 +1,6 @@
 import { Box, Divider, FormControl, IconButton, InputAdornment, OutlinedInput, Stack, TextField, Typography, useTheme } from '@mui/material'
 import React from 'react'
-import { footericons } from '../constants/HomeConstant.jsx'
-import { footerHomeLinks } from '../constants/homeConstant.jsx'
-import { footerProductLinks } from '../constants/homeConstant.jsx'
+import { footerHomeLinks, footerProductLinks, footericons } from '../constants/HomeConstant.jsx'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Footer = () => {

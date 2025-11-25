@@ -1,10 +1,8 @@
 import { Box, Stack, useTheme, Typography, Button } from '@mui/material'
 import React, { useState } from 'react'
-import { firstRow } from '../../constants/HomeConstant'
-import { secondRow } from '../../constants/HomeConstant'
-import { Description } from '@mui/icons-material'
+import { firstRow, secondRow } from '../../constants/HomeConstant'
 
-import { ScrollTrigger, SplitText } from 'gsap/all';
+import { ScrollTrigger } from 'gsap/all';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
 

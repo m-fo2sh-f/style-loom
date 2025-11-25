@@ -4,7 +4,6 @@ import icon from '../../assets/icons/Abstract Design2.png'
 import DottedButton from '../../components/DottedButton'
 import { useQuery } from '@tanstack/react-query';
 import { getProducts } from '../../services/productServices';
-import SpecialButton from '../../components/SpecialButton';
 import { Product } from '../../components/Product';
 
 
